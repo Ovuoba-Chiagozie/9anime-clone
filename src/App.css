@@ -3,6 +3,8 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  --dimgrey: #666;
+  --lightgrey: #aaa;
 
 }
 
@@ -12,7 +14,7 @@ body {
    font-family: 'Nunito', sans-serif;
    font-weight: 400;
    line-height: 1.5;
-   color: #aaa;
+   color: var(--lightgrey);
    font-size: 12px;
    box-sizing: border-box;
 
@@ -94,7 +96,7 @@ align-items: center;
   font-size: 18px;
   width: 18px;
   height: 18px;
-  color: #666;
+  color: var(--dimgrey);
   cursor: pointer;
   box-sizing: content-box;
   padding: 1px 6px;
@@ -114,8 +116,8 @@ align-items: center;
    width: 530px;
    padding: 0px 10px 0px 10px;
    background:#141414 ;
-   color: #aaa;
-   caret-color: #aaa;
+   color: var(--lightgrey);
+   caret-color: var(--lightgrey);
 }
 
 .searchbar > form > img {
@@ -128,16 +130,16 @@ align-items: center;
 
 .searchbar > form > span {
 
-  border-bottom: 1px solid #666;
+  border-bottom: 1px solid var(--dimgrey);
   line-height: 1;
   cursor: pointer;
-  color: #666;
+  color: var(--dimgrey);
 }
 
 .searchbar > form > span:hover {
 
-  color:#aaa;
-  border-bottom: 1px solid #aaa;
+  color:var(--lightgrey);
+  border-bottom: 1px solid var(--lightgrey);
 }
 
 .searchbox--container {
@@ -161,7 +163,7 @@ align-items: center;
 
 .filter--section--anime {
 
-  color: #aaa;
+  color: var(--lightgrey);
   font-weight: 600;
   position: relative;
   cursor: pointer;
@@ -173,7 +175,7 @@ align-items: center;
   content: "";
   width: 100%;
   height: 1px;
-  background-color: #aaa;
+  background-color: var(--lightgrey);
   position: absolute;
   bottom: -1px;
   right: 0;
@@ -200,13 +202,13 @@ align-items: center;
 
   margin-left: 5px;
   line-height: 12px;
-  color: #666;
+  color: var(--dimgrey);
 
 }
 
 .filter--div > span:hover {
 
-  color: #aaa;
+  color: var(--lightgrey);
 
 }
 
@@ -214,5 +216,113 @@ align-items: center;
 
   width: 100%;
   height: 42px;
+  padding: 0px 15px 0px 15px;
+  display: flex;
+  align-items: center;
+  background: #202020;
+
+}
+
+.searchbox--footer--navtip {
+
+display: flex;
+align-items: center;
+
+
+}
+
+.searchbox--footer--navtip > span {
+
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  color: var(--dimgrey);
+
+}
+
+.searchbox--footer--navtip img {
+
+  width: 17.81px;
+  height: 17.81px;
+  margin-right: 3px;
+
+}
+
+.searchCard {
+
+  text-decoration:none;
+  color: var(--lightgrey);
+  display: flex;
+  padding: 15px 15px;
+
+}
+
+.searchCard > img {
+
+  width: 45px;
+  height: 58.5px;
+
+}
+
+.searchCard--info {
+
+  margin-left: 10px;
+
+}
+
+.searchCard--title {
+
+  color: var(--lightgrey);
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+  font-size: 14.4px;
+  line-height: 18px;
+
+}
+
+.searchCard--extrainfo {
+
+  display: flex;
+  align-items: center;
+
+}
+
+.searchCard--rating {
+
+  font-size: 9.6px;
+  font-weight: 400;
+  color: var(--dimgrey);
+  padding: 0 3px;
+  border: 1px solid var(--dimgrey);
+  border-radius: 1.44px; 
+
+}
+
+.dot {
+
+  font-size: 8px;
+  color: var(--dimgrey);
+  margin-left: 5px;
+  margin-right: 8px;
+
+}
+
+.fa-star {
+
+  color: #777;
+
+}
+
+.searchCard--score {
+
+  font-size: 12px;
+  color: #777;
+
+}
+
+.type--date {
+
+  color: #515151;
 
 }

@@ -1,5 +1,5 @@
 import HomeInput from "./HomeInput"
-
+import SearchBox from "./SearchBox"
 const Top = () => {
 
     return (
@@ -11,7 +11,8 @@ const Top = () => {
             <li><a href="#">New Release</a></li>
             <li><a href="#8">Recent Update</a></li>
         </ul>
-        <HomeInput />
+        {/* <HomeInput /> */}
+        <SearchBox />
         </div>
 
     )
