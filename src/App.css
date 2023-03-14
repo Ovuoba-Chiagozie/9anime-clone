@@ -1,0 +1,218 @@
+*{
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+
+  background: #050505;
+   font-family: 'Nunito', sans-serif;
+   font-weight: 400;
+   line-height: 1.5;
+   color: #aaa;
+   font-size: 12px;
+   box-sizing: border-box;
+
+}
+
+.wrapper {
+
+  padding: 30px 0px 30px 0px;
+  display:flex;
+  justify-content:center;
+align-items: center;
+
+}
+
+.top-logo {
+
+  background-image: url('./assets/logo.png');
+  background-size: contain;
+  height:60px;
+  width: 250px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+}
+
+.navbar {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 18px 0px 18px 0px;
+  
+}
+
+.navbar > li > a {
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 600;
+  font-size: 13.2px;
+  padding: 3px 12px;
+  display: block;
+}
+
+.navbar > li > a:hover {
+  transition: color .3s,background .3s;
+  cursor: pointer;
+  color:#8c5ece ;
+}
+
+.searchbar {
+
+  width: 600px;
+  height: 36px;
+
+}
+
+.searchbar > form {
+
+  width:100%;
+  height: 100%;
+  padding: 0px 10px 0px 10px;
+  border-radius: 5px 5px 0px 0px;
+  background-color: #141414;
+  display: flex;
+  align-items: center;
+   
+}
+
+.icon {
+
+    color: #595959;
+    width: 1.3em;
+    height: 1.3em;
+
+}
+
+.search-icon {
+
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: #666;
+  cursor: pointer;
+  box-sizing: content-box;
+  padding: 1px 6px;
+
+}
+
+.search-icon:hover {
+
+  color: #aaaaaa;
+
+}
+
+.homeinput {
+   height: 100%;
+   outline: none;
+   border: none;
+   width: 530px;
+   padding: 0px 10px 0px 10px;
+   background:#141414 ;
+   color: #aaa;
+   caret-color: #aaa;
+}
+
+.searchbar > form > img {
+
+  width:17.16px;
+  height: 17.16px;
+  margin-right: 5px;
+
+}
+
+.searchbar > form > span {
+
+  border-bottom: 1px solid #666;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+}
+
+.searchbar > form > span:hover {
+
+  color:#aaa;
+  border-bottom: 1px solid #aaa;
+}
+
+.searchbox--container {
+  
+ border: 1px solid #292929;
+ border-radius: 5px;
+
+}
+
+.filter--section {
+
+  width: 100%;
+  height:31px;
+  padding: 10px 15px 0px 15px;
+  background: #141414;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #292929;
+
+}
+
+.filter--section--anime {
+
+  color: #aaa;
+  font-weight: 600;
+  position: relative;
+  cursor: pointer;
+
+}
+
+.filter--section--anime:after {
+  
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #aaa;
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+
+}
+
+.filter--div{
+
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+
+
+}
+
+.filter--div > img{
+
+  width:10.8px;
+  height:10.8px
+
+}
+
+.filter--div > span {
+
+  margin-left: 5px;
+  line-height: 12px;
+  color: #666;
+
+}
+
+.filter--div > span:hover {
+
+  color: #aaa;
+
+}
+
+.searchbox--footer {
+
+  width: 100%;
+  height: 42px;
+
+}
