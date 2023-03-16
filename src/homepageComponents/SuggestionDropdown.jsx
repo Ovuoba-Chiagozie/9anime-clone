@@ -37,24 +37,32 @@ let Card = (prop) => {
 
   )
 
-} 
+}
 
-let SuggestionDropdown = () => {
+let NoResult = () => {
 
+  return (
+
+    <div id='no--result'>There is no result</div>
+
+  )
+
+}
+
+let SuggestionDropdown = (prop) => {
+      
     let [animeImages, setAnimeImages] = React.useState([])
-    
+   
     React.useEffect(() => {
-
-      const url = 'https://api.jikan.moe/v4/anime?q="naruto"'
+      if(prop.anime.length > 1) {
+      const url = `https://api.jikan.moe/v4/anime?q=*${prop.anime}&limit=5*`
 
       fetch(url)
       .then(response => response.json())
       .then(anime => {
         console.log(anime)
-        let test = true
+        if (anime.data.length > 0) {
         setAnimeImages(anime.data.map((dataArray,index) => {
-          let be = !test
-          console.log("this is test",be)
           let id = dataArray.mal_id
           let poster = dataArray.images.jpg.image_url
           let title = dataArray.title
@@ -72,19 +80,33 @@ let SuggestionDropdown = () => {
                          aired = {aired ? aired.split(' to',1) : ""}
                          color ={index % 2 === 0 ? true : false}
                          />
-                        
+                      
           return cards
 
         }))
+      }
 
-        
+      else {
+        setAnimeImages(<NoResult />)
+      }
+      let dropDownwrapper = document.getElementsByClassName('dropDown--wrapper')
+      let viewAll = document.querySelector('.view--all')
+      dropDownwrapper[0].classList.remove('display--height')
+      setTimeout(() => {
+        dropDownwrapper[0].classList.add('display--height')
+        viewAll.classList.add('display')
+      },3 );
       })
-
-    },[])
+     
+    }
+    },[prop.anime])
+    
+    
 
     return (
         
-        <div>{animeImages}</div>
+        <div className='dropDown--wrapper'>{animeImages}</div>
+        
 
     )
 
