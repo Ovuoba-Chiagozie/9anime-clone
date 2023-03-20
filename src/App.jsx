@@ -1,14 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import Top from './homepageComponents/Top'
+import Bottom from './homepageComponents/Bottom'
 import './App.css'
 
 const App = () => {
 
   return (
   
-    <div className='wrapper'>
+    <div>
+    <div className='top--wrapper'>
         <Top />
+    </div>
+    <div className='bottom--wrapper'>
+      <Bottom />
+    </div>
     </div>
   
 
