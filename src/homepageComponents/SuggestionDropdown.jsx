@@ -52,6 +52,7 @@ let NoResult = () => {
 let SuggestionDropdown = (prop) => {
       
     let [animeImages, setAnimeImages] = React.useState([])
+    
    
     React.useEffect(() => {
       if(prop.anime.length > 1) {
@@ -89,9 +90,14 @@ let SuggestionDropdown = (prop) => {
       else {
         setAnimeImages(<NoResult />)
       }
+      console.log('anime',prop.anime)
+      
+
       let dropDownwrapper = document.getElementsByClassName('dropDown--wrapper')
+      let footer = document.querySelector('.searchbox--footer')
       let viewAll = document.querySelector('.view--all')
       dropDownwrapper[0].classList.remove('display--height')
+      footer.classList.add('display--footer')
       setTimeout(() => {
         dropDownwrapper[0].classList.add('display--height')
         viewAll.classList.add('display')

@@ -49,8 +49,14 @@ body {
   display:flex;
   justify-content:center;
 align-items: center;
-position: relative;
 
+}
+
+.top--container {
+
+  width: 100%;
+  max-width: 630px;
+  position: relative;
 
 }
 
@@ -104,15 +110,25 @@ position: relative;
 
 }
 
-.Main--searchbar > form {
+.Main--searchbar > form  {
 
   width:100%;
+  max-width: 600px;
   height: 100%;
   padding: 0px 10px 0px 10px;
   border-radius: 5px;
   background-color: #171717;
+  
+
+}
+
+.Main--searchbar > form > .form--container {
+
   display: flex;
   align-items: center;
+   width:100%;
+   max-width: 570px;
+  height: 100%;
 
 }
 
@@ -211,7 +227,8 @@ position: relative;
   height: 100%;
    outline: none;
    border: none;
-   width: 530px;
+   width: 100%;
+   max-width: 530px;
    padding: 0px 10px 0px 10px;
    background:#171717 ;
    color: var(--lightgrey);
@@ -219,25 +236,24 @@ position: relative;
 
 }
 
-.searchbar > form > img {
+/* .searchbar > form > img {
 
   width:17.16px;
   height: 17.16px;
   margin-right: 5px;
 
-}
+} */
 
 
 
 .searchbox--container {
   
  max-width: 600px;
- border-radius: 5px;
- /* display:none; */
- margin:0px auto 10px -300px;
- position: absolute;
- left: 50%;
- z-index: 2;
+ width: 100%;
+border-radius: 5px;
+position: absolute;
+left: 50%;
+transform: translate(-50%, 0);
  
 
 
@@ -266,7 +282,7 @@ position: relative;
 
 .searchbox--dropdown.drop {
 
-  max-height: 38em;
+  max-height: 45em;
 
 }
 
@@ -427,6 +443,7 @@ max-height: 0;
 .searchCard--extrainfo {
 
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 
 }
@@ -717,5 +734,136 @@ max-height: 0;
 .bottom--container a:hover {
 
   color: #a885da;
+
+}
+
+@media (max-width: 1004.98px) {
+
+  .form--img{
+
+    display: none;
+
+  }
+
+  .Main--searchbar > form {
+
+    height: 66px;
+    padding: 15px 15px 15px 15px;
+    
+
+  }
+
+  .searchbox--form.showclear {
+
+    border-radius: 5px 5px 0 0;
+
+  }
+
+  .form--container {
+
+    background: #ffffff;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+
+  }
+
+  .homeinput2 {
+
+    background: #ffffff;
+    border-radius: 3px 0 0 3px;
+    
+
+  }
+
+  .search-icon {
+
+    position: absolute;
+    right: 0;
+
+  }
+
+  .search-icon:hover {
+
+    color: #5a2e98;
+
+  }
+
+  .go--to-homepage--btn {
+
+    margin-top: 94px;
+
+  }
+
+  .searchbox--container.border {
+
+    border: none;
+
+  }
+
+  .clearbtn.showclear {
+
+    display: none;
+  }
+
+  .Main--searchbar {
+
+    height: 66px;
+  }
+
+  .searchbox--dropdown {
+
+  width: 100%;
+  position: absolute;
+  margin-top: 50px;
+  top: 0;
+
+}
+
+.searchbox--footer {
+
+  display: none;
+  border-radius: 0 0 5px 5px;
+
+}
+
+.searchbox--footer.display--footer {
+
+  display: flex;
+  justify-content: center;
+
+}
+
+.searchbox--footer--navtip {
+
+  display: none;
+
+}
+
+.homeinput2 {
+
+  color: #1c1c1c;
+  caret-color: #1c1c1c;
+
+}
+
+}
+
+@media (max-width:970px) {
+
+  .social {
+    
+    display: none;
+
+  }
+
+  .social--count {
+
+    display: none;
+
+  }
 
 }

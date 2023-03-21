@@ -9,29 +9,40 @@ import Pinterest from '../assets/Pinterest-icon.svg'
 import Addthis from '../assets/Add-this-icon.svg'
 const Top = () => {
 
-    let [animeData, setAnimeData] = React.useState({
-        animeName:"",
+    // let [animeData, setAnimeData] = React.useState({
+    //     animeName:"",
         
-    })
-    let handleChange = (event) => {
+    // })
+    // let handleChange = (event) => {
 
-        let {name, value} = event.target
-        setAnimeData(prevState => {
-            return {...prevState, [name]: value}
+    //     let searchinput = document.querySelector('.homeinput2')
+
+    //     let {name, value} = event.target
+    //     setAnimeData(prevState => {
+    //         return {...prevState, [name]: value}
     
-        })
-    }
+    //     })
+    //     if(searchinput.value == ""){
 
-    let clearInput = () => {
-
-        setAnimeData(prevState => {
-            return {...prevState, animeName: ""}
+    //         let footer = document.querySelector('.searchbox--footer')
+    //         footer.classList.remove('display--footer')
+    //         // console.log("footer")
     
-        })
-    }
+    //       }
+    // }
+
+    // let clearInput = () => {
+
+    //     setAnimeData(prevState => {
+    //         return {...prevState, animeName: ""}
+    
+    //     })
+
+    //     console.log('this',animeData.animeName)
+    // }
 
     return (
-        <div >
+        <div className='top--container'>
         <div className="top-logo"></div>
         <ul className="navbar">
             <li><a href="#">Home</a></li>
@@ -41,8 +52,9 @@ const Top = () => {
         </ul>
          {/* <HomeInput clearInput = {clearInput} />  */}
         <SearchBox
-         handleChange = {handleChange}
-         animeName = {animeData.animeName} 
+        //  handleChange = {handleChange}
+        //  animeName = {animeData.animeName}
+        //  clearInput = {clearInput} 
         />
         <div className='go--to-homepage--btn'>
             <a href="">Go to homepage  <i className="fa-solid fa-circle-arrow-right"></i></a>

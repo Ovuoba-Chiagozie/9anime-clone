@@ -37,6 +37,38 @@ let SearchBox = (prop) => {
     //     })
     // }
 
+    let [animeData, setAnimeData] = React.useState({
+        animeName:"",
+        
+    })
+    let handleChange = (event) => {
+
+        let searchinput = document.querySelector('.homeinput2')
+
+        let {name, value} = event.target
+        setAnimeData(prevState => {
+            return {...prevState, [name]: value}
+    
+        })
+        if(searchinput.value == ""){
+
+            let footer = document.querySelector('.searchbox--footer')
+            footer.classList.remove('display--footer')
+            // console.log("footer")
+    
+          }
+    }
+
+    let clearInput = () => {
+
+        setAnimeData(prevState => {
+            return {...prevState, animeName: ""}
+    
+        })
+
+        console.log('this',animeData.animeName)
+    }
+
     let releaseDropdown = () => {
 
         showClear()
@@ -52,6 +84,8 @@ let SearchBox = (prop) => {
 
         let ClearBtn = document.querySelector('.clearbtn')
         let formImg = document.querySelector('.form--img')
+        let form = document.querySelector('.searchbox--form')
+        form.classList.add('showclear')
         ClearBtn.classList.add('showclear')
         formImg.classList.add('showclear')
 
@@ -60,8 +94,10 @@ let SearchBox = (prop) => {
     let hideSeacrhDisplay = () => {
         let ClearBtn = document.querySelector('.clearbtn')
         let formImg = document.querySelector('.form--img')
+        let form = document.querySelector('.searchbox--form')
         let searchBoxContainer = document.querySelector('.searchbox--container')
         let searchBoxDrop = document.querySelector('.searchbox--dropdown')
+        let searchinput = document.querySelector('.homeinput2')
         document.addEventListener('click', (event) => {
         let outsideclick = !searchBoxContainer.contains(event.target)
        if (outsideclick) {
@@ -70,29 +106,38 @@ let SearchBox = (prop) => {
         // searchBoxContainer.classList.remove('border')
         ClearBtn.classList.remove('showclear')
         formImg.classList.remove('showclear')
+        form.classList.remove('showclear')
+        // prop.clearInput
+        // searchinput.value = prop.animeName
+        // prop.clearInput
+        // console.log('claery',prop.animeName)
+        clearInput()
+        searchinput.value = animeData.animeName
 
        }
         }) 
         console.log('something is wrong')  
     }
    
- console.log(prop.animeName)
+//  console.log('input',prop.animeName)
     return (
         <div className="searchbox--container">
             <div className="Main--searchbar">
-        <form action="">
+        <form  className='searchbox--form' action="">
+            <div className='form--container'>
             <i className="fa-solid fa-magnifying-glass search-icon"></i>
             <input 
             type="text" 
             className="homeinput2" 
             placeholder="Search anime..."
             name="animeName"
-            value={prop.animeName}
-            onChange={prop.handleChange}
+            value={animeData.animeName}
+            onChange={handleChange}
             onFocus = {releaseDropdown}
              />
              <img className='form--img' src={searchShortcut} alt="" />
             <span className='clearbtn'>Clear</span>
+            </div>
         </form>
         </div>
         <div className='searchbox--dropdown'>
@@ -103,7 +148,7 @@ let SearchBox = (prop) => {
                 <span>Filter</span>
             </div>
         </div>
-       {prop.animeName.length > 1 && <SuggestionDropdown anime={prop.animeName}/>}
+       {animeData.animeName.length > 1 && <SuggestionDropdown anime={animeData.animeName}/>}
         <div className="searchbox--footer">
             <div className="searchbox--footer--navtip">
             <span>
