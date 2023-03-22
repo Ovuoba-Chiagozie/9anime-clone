@@ -1,21 +1,14 @@
 import { useState } from 'react'
-import Top from './homepageComponents/Top'
-import Bottom from './homepageComponents/Bottom'
+import Home from './pages/Home'
 import './App.css'
+import HomePage from './pages/HomePage'
 
 const App = () => {
 
   return (
-  
-    <div>
-    <div className='top--wrapper'>
-        <Top />
-    </div>
-    <div className='bottom--wrapper'>
-      <Bottom />
-    </div>
-    </div>
-  
+
+    <Home />
+    // <HomePage />
 
        )
 }

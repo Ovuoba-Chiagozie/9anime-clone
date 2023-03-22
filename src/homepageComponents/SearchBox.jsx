@@ -7,6 +7,34 @@ import escapetip from '../assets/escapetip.svg'
 import SuggestionDropdown from "./SuggestionDropdown"
 import searchShortcut from "../assets/search-shortcut.svg"
 
+
+let SearchBar = (prop) => {
+
+    return (
+
+        <div className="Main--searchbar">
+    <form  className='searchbox--form' action="">
+        <div className='form--container'>
+        <i className="fa-solid fa-magnifying-glass search-icon"></i>
+        <input 
+        type="text" 
+        className="homeinput2" 
+        placeholder="Search anime..."
+        name="animeName"
+        value={prop.value}
+        onChange={prop.handleChange}
+        onFocus = {prop.Focus}
+         />
+         <img className='form--img' src={searchShortcut} alt="" />
+        <span className='clearbtn'>Clear</span>
+        </div>
+    </form>
+    </div>
+
+    )
+
+}
+
 let SearchBox = (prop) => {
 
     // let [animeData, setAnimeData] = React.useState({
@@ -36,6 +64,7 @@ let SearchBox = (prop) => {
     
     //     })
     // }
+
 
     let [animeData, setAnimeData] = React.useState({
         animeName:"",
@@ -122,24 +151,11 @@ let SearchBox = (prop) => {
 //  console.log('input',prop.animeName)
     return (
         <div className="searchbox--container">
-            <div className="Main--searchbar">
-        <form  className='searchbox--form' action="">
-            <div className='form--container'>
-            <i className="fa-solid fa-magnifying-glass search-icon"></i>
-            <input 
-            type="text" 
-            className="homeinput2" 
-            placeholder="Search anime..."
-            name="animeName"
-            value={animeData.animeName}
-            onChange={handleChange}
-            onFocus = {releaseDropdown}
-             />
-             <img className='form--img' src={searchShortcut} alt="" />
-            <span className='clearbtn'>Clear</span>
-            </div>
-        </form>
-        </div>
+            <SearchBar
+                value={animeData.animeName}
+                handleChange={handleChange}
+                Focus = {releaseDropdown} 
+            />
         <div className='searchbox--dropdown'>
         <div className="filter--section">
             <div className="filter--section--anime">Anime</div>
@@ -176,4 +192,23 @@ let SearchBox = (prop) => {
     )
 }
 
-export default SearchBox
+export {SearchBox, SearchBar}
+
+{/* <div className="Main--searchbar">
+        <form  className='searchbox--form' action="">
+            <div className='form--container'>
+            <i className="fa-solid fa-magnifying-glass search-icon"></i>
+            <input 
+            type="text" 
+            className="homeinput2" 
+            placeholder="Search anime..."
+            name="animeName"
+            value={animeData.animeName}
+            onChange={handleChange}
+            onFocus = {releaseDropdown}
+             />
+             <img className='form--img' src={searchShortcut} alt="" />
+            <span className='clearbtn'>Clear</span>
+            </div>
+        </form>
+        </div> */}

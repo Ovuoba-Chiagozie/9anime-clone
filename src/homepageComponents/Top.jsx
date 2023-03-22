@@ -1,12 +1,13 @@
 import React from 'react'
 import HomeInput from "./HomeInput"
-import SearchBox from "./SearchBox"
+import {SearchBox} from "./SearchBox"
 import Facebook from '../assets/facebook-icon.svg'
 import Twitter from '../assets/Twiiter-icon.svg'
 import Telegram from '../assets/Telegram-icon.svg'
 import Messenger from '../assets/messenger-icon.svg'
 import Pinterest from '../assets/Pinterest-icon.svg'
 import Addthis from '../assets/Add-this-icon.svg'
+
 const Top = () => {
 
     // let [animeData, setAnimeData] = React.useState({
@@ -96,7 +97,7 @@ const Top = () => {
                 <span className='social'>More</span>
                 <span className='social--count' >530K</span>
                 </a>
-                </div>
+            </div>
         </div>
         </div>
 
