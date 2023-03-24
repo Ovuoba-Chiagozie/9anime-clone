@@ -1,5 +1,5 @@
 import Header from "../MainPageComponenets/Header";
-//import "../homepage.css";
+import "../homepage.css";
 const HomePage = () => {
   return <Header />;
 };

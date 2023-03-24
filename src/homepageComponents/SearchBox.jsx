@@ -15,7 +15,9 @@ let SearchBar = (prop) => {
         <div className="Main--searchbar">
     <form  className='searchbox--form' action="">
         <div className='form--container'>
+        <button>
         <i className="fa-solid fa-magnifying-glass search-icon"></i>
+        </button>
         <input 
         type="text" 
         className="homeinput2" 
@@ -37,35 +39,6 @@ let SearchBar = (prop) => {
 
 let SearchBox = (prop) => {
 
-    // let [animeData, setAnimeData] = React.useState({
-    //     animeName:"",
-        
-    // })
-
-    // document.addEventListener('click', (event) => {
-
-    //     let searchBoxContainer = document.querySelector('.searchbox--container')
-    //     let homeinput = document.querySelector('.searchbar')
-    //     let outsideclick = !searchBoxContainer.contains(event.target)
-    //     console.log(event.target)
-    //    if (outsideclick) {
-    //     let searchbox = document.querySelector('.searchbox--container')
-    //     searchbox.classList.remove('display--search')
-    //     homeinput.classList.remove('display--search')
-    //     console.log('something is wrong')
-    //    }
-    // })
-      
-    // let handleChange = (event) => {
-
-    //     let {name, value} = event.target
-    //     setAnimeData(prevState => {
-    //         return {...prevState, [name]: value}
-    
-    //     })
-    // }
-
-
     let [animeData, setAnimeData] = React.useState({
         animeName:"",
         
@@ -86,6 +59,13 @@ let SearchBox = (prop) => {
             // console.log("footer")
     
           }
+
+          if (searchinput.value.length <= 1) {
+
+            let viewAll = document.querySelector('.view--all')
+            viewAll.classList.remove("display")
+
+          }
     }
 
     let clearInput = () => {
@@ -98,6 +78,15 @@ let SearchBox = (prop) => {
         console.log('this',animeData.animeName)
     }
 
+    let changeBackground = () => {
+
+        let searchboxContainer = document.querySelector('.searchbox--container')
+        let searchboxform = document.querySelector('.searchbox--form')
+        searchboxContainer.style.cssText += "background-color:#171717"
+        searchboxform.style.cssText += "background-color:#171717"
+       
+    }
+
     let releaseDropdown = () => {
 
         showClear()
@@ -106,6 +95,7 @@ let SearchBox = (prop) => {
         searchBoxDrop.classList.add('drop')
         searchBoxContainer.classList.add('border')
         hideSeacrhDisplay()
+        changeBackground()
 
     }
 
@@ -127,6 +117,7 @@ let SearchBox = (prop) => {
         let searchBoxContainer = document.querySelector('.searchbox--container')
         let searchBoxDrop = document.querySelector('.searchbox--dropdown')
         let searchinput = document.querySelector('.homeinput2')
+        
         document.addEventListener('click', (event) => {
         let outsideclick = !searchBoxContainer.contains(event.target)
        if (outsideclick) {
@@ -136,6 +127,11 @@ let SearchBox = (prop) => {
         ClearBtn.classList.remove('showclear')
         formImg.classList.remove('showclear')
         form.classList.remove('showclear')
+        let searchboxContainer = document.querySelector('.searchbox--container')
+        let searchboxform = document.querySelector('.searchbox--form')
+        searchboxContainer.style.cssText += "background-color:#141414"
+        searchboxform.style.cssText += "background-color:#141414"
+        console.log('idiot')
         // prop.clearInput
         // searchinput.value = prop.animeName
         // prop.clearInput
@@ -164,7 +160,7 @@ let SearchBox = (prop) => {
                 <span>Filter</span>
             </div>
         </div>
-       {animeData.animeName.length > 1 && <SuggestionDropdown anime={animeData.animeName}/>}
+       {animeData.animeName.length > 1 && <SuggestionDropdown anime={animeData.animeName}/>  }
         <div className="searchbox--footer">
             <div className="searchbox--footer--navtip">
             <span>
@@ -212,3 +208,34 @@ export {SearchBox, SearchBar}
             </div>
         </form>
         </div> */}
+
+
+            
+
+    // let [animeData, setAnimeData] = React.useState({
+    //     animeName:"",
+        
+    // })
+
+    // document.addEventListener('click', (event) => {
+
+    //     let searchBoxContainer = document.querySelector('.searchbox--container')
+    //     let homeinput = document.querySelector('.searchbar')
+    //     let outsideclick = !searchBoxContainer.contains(event.target)
+    //     console.log(event.target)
+    //    if (outsideclick) {
+    //     let searchbox = document.querySelector('.searchbox--container')
+    //     searchbox.classList.remove('display--search')
+    //     homeinput.classList.remove('display--search')
+    //     console.log('something is wrong')
+    //    }
+    // })
+      
+    // let handleChange = (event) => {
+
+    //     let {name, value} = event.target
+    //     setAnimeData(prevState => {
+    //         return {...prevState, [name]: value}
+    
+    //     })
+    // }

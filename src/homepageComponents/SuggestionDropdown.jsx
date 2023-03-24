@@ -41,6 +41,9 @@ let Card = (prop) => {
 
 let NoResult = () => {
 
+  let viewAll = document.querySelector('.view--all')
+            viewAll.classList.remove('display')
+
   return (
 
     <div id='no--result'>There is no result</div>
@@ -81,7 +84,12 @@ let SuggestionDropdown = (prop) => {
                          aired = {aired ? aired.split(' to',1) : ""}
                          color ={index % 2 === 0 ? true : false}
                          />
-                      
+
+          if (!anime.data.length == 0) {
+            let viewAll = document.querySelector('.view--all')
+            viewAll.classList.add('display')
+          }
+
           return cards
 
         }))
@@ -95,12 +103,12 @@ let SuggestionDropdown = (prop) => {
 
       let dropDownwrapper = document.getElementsByClassName('dropDown--wrapper')
       let footer = document.querySelector('.searchbox--footer')
-      let viewAll = document.querySelector('.view--all')
+     
       dropDownwrapper[0].classList.remove('display--height')
       footer.classList.add('display--footer')
       setTimeout(() => {
         dropDownwrapper[0].classList.add('display--height')
-        viewAll.classList.add('display')
+        
       },3 );
       })
      
