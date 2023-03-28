@@ -11,6 +11,7 @@ html {
     box-sizing: border-box;
     --dimgrey: #666;
     --lightgrey: #aaa;
+ 
   
   }
   
@@ -126,7 +127,7 @@ html {
     -moz-transition: 0.2s ease-in-out;
     -o-transition: 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    /* overflow: hidden; */
+    overflow: hidden;
     max-height: 0;
 
 }
@@ -136,6 +137,7 @@ html {
   max-height: 26rem;
   /* display: block; */
   padding: 10px 0;
+  overflow: visible;
 
 }
 
@@ -1009,5 +1011,5 @@ html {
     font-size: 1.5rem;
 
   }
-  
+
 

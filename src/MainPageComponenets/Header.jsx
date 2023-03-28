@@ -1,5 +1,6 @@
 import { SearchBar, SearchBox } from "../homepageComponents/SearchBox";
 import Language from "./Language";
+import Tooltip from "./Tooltip";
 import watch2gether from '../assets/watch2gether.svg'
 import random from '../assets/random.svg'
 import Facebook from '../assets/facebook-icon.svg'
@@ -103,33 +104,24 @@ const Header = () => {
 
   let toggleGenre = () => {
 
-    let Genre = document.querySelector('.list--genre')
-    let Type = document.querySelector('.list--type')
+    setListPopup(prevState => {
 
-    Genre.addEventListener('click', () => {
-
-      setListPopup(prevState => {
-
-        return (
-          {...!prevState, genre: !prevState.genre }
-        )
-
-      })
-      console.log(listpopup.genre)
+      return (
+        {...prevState,type:false, genre: !prevState.genre }
+      )
     })
 
-    Type.addEventListener('click', () => {
+  }
 
-      setListPopup(prevState => {
+  let toggleType = () => {
 
-        return (
-          {...!prevState, type: !prevState.type }
-        )
-       
-      })
-      console.log(listpopup.type)
+    setListPopup(prevState => {
+
+      return (
+        {...prevState,genre:false, type: !prevState.type }
+      )
+     
     })
-    
 
   }
 
@@ -141,6 +133,13 @@ const Header = () => {
     result ? hamburger.classList.add("active") : hamburger.classList.remove("active")
     result ? menuList.classList.add("active") : menuList.classList.remove("active")
     console.log(result)
+    setListPopup(prevState=> {
+
+      return (
+        {...prevState, type:false, genre:false}
+      )
+
+    })
 
   })
 
@@ -215,7 +214,7 @@ const Header = () => {
                 <li><a href=""> <h3>Thriller</h3> </a></li>
                 <li><a href=""> <h3>Vampire</h3> </a></li>
               </ul>
-                <a className={`list--genre ${listpopup.genre ? 'active' : ""}`} onClick={toggleGenre} href="#">GENRE</a>
+                <a className={listpopup.genre ? 'active' : ""} onClick={toggleGenre} href="#">GENRE</a>
               </li>
               <li className="list--item">
               <ul className={`genre--list--items types ${listpopup.type ? 'active' : ""}`}>
@@ -226,7 +225,7 @@ const Header = () => {
                 <li><a href=""><h3>Specials</h3></a></li>
                 <li><a href=""><h3>Music</h3></a></li>
               </ul>
-              <a href="#" className="list--type" onClick={toggleGenre}>TYPES</a>
+              <a href="#" className={listpopup.type ? 'active' : ""} onClick={toggleType}>TYPES</a>
               </li>
               <li className="list--item"><a href="">NEWEST</a></li>
               <li className="list--item"><a href="">UPDATED</a></li>
@@ -246,8 +245,16 @@ const Header = () => {
         <div className="btn--wrapper" >
             <div className="btn--container">
                 <div className="btns">
-                <a href="" className="togethericon--wrapper" onMouseEnter={changeColor} onMouseLeave={revertcolor}><Watch2gether color={svgHover.svgTogether}   /><span>Watch2gether</span></a>
-                <a href="" className="randomicon--wrapper" onMouseEnter={changeColor} onMouseLeave={revertcolor}><Random color={svgHover.svgRandom} /><span>Random</span></a>
+                <a href="" className="togethericon--wrapper" onMouseEnter={changeColor} onMouseLeave={revertcolor}><Tooltip content="Watch with friends" direction="bottom">
+                  <Watch2gether color={svgHover.svgTogether}   /><span>Watch2gether</span>
+                  </Tooltip>
+                  </a>
+                <a href="" className="randomicon--wrapper" onMouseEnter={changeColor} onMouseLeave={revertcolor}>
+                <Tooltip content="Watch a random anime." direction="bottom">
+                  <Random color={svgHover.svgRandom} /><span>Random</span>
+                  </Tooltip>
+                  </a>
+                
                 <a href="" className="read--manga"><i className="fa-solid fa-book"></i><span>Read Manga</span></a>
                 </div>
                 <Language lang={lang} toggle={togglelang} />
