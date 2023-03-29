@@ -48,6 +48,7 @@ html {
   header {
     position: fixed;
     width: 100%;
+    top: 0;
   }
 
   .header--container {
@@ -1011,5 +1012,228 @@ html {
     font-size: 1.5rem;
 
   }
+
+  footer {
+
+    margin-top: 60px;
+    background: #151515;
+
+  }
+
+  .footer--container {
+
+    background: url('https://s2.bunnycdn.ru/assets/_9anime/imagesv2/bg-footer.jpg');
+    background-position: center;
+    background-size: cover;
+    padding: 80px 10px 80px 10px;
+    max-width: 1800px;
+    width: 100%;
+
+  }
+
+  .search--by--letter {
+
+    margin-bottom: 40px;
+
+  }
+
+  .A-Z--container {
+
+    display: flex;
+    justify-content: flex-start;
+
+  }
+
+  .A-Z {
+
+    color: #fff;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 600
+
+  }
+
+  .A-Z--meta {
+
+    color: #666;
+    margin-left: 15px;
+    align-self: flex-end;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+
+  }
+
+  .letters > ul {
+
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    gap: 8px;
+
+  }
+
+  .letters > ul > li > a {
+
+    color: #aaa;
+    display: block;
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: #2e2e2e;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    text-decoration: none;
+
+  }
+
+  .letters > ul > li > a:hover {
+
+    background: #5a2e98;
+    color: #fff;
+
+  }
+
+  .footer--end {
+
+    display: flex;
+    margin: 0 -10px 0 -10px;
+
+  }
+
+  .footer--end--container {
+
+    padding: 0 10px 0 10px;
+
+  }
+
+  .footer--end--wrapper--logo {
+
+    display: flex;
+  }
+
+  .footer--logo {
+
+    background: url('./assets/logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: block;
+    width: 9.6rem;
+    height: 2.7rem;
+    margin-bottom: 0.45rem;
+    margin-right: 20px;
+    transition: all .2s;
+
+  }
+
+  .footer--socials {
+
+    background: #ddd;
+    border-radius: 50rem;
+    display: inline-block;
+    color: #222;
+    padding: 3px 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center
+
+  }
+
+  .footer--socials > a {
+
+    font-size: 1.5rem;
+    margin-left: 10px;
+    color: #1c1c1c;
+    transition: transform .2s;
+
+  }
+
+  .fa-twitter {
+
+    color: #3395ff;
+    width: 1.5rem;
+
+  }
+
+  .footer--socials > a > .fa-twitter:hover {
+
+    transform: scale(1.1);
+
+  }
+
+  .footer--socials > a > .fa-reddit-alien:hover {
+
+    transform: scale(1.1);
+    color: #dc3545;
+
+  }
+
+  .footer--socials > a > .fa-discord:hover {
+
+    transform: scale(1.1);
+    color: #8540f5;
+
+  }
+
+  .footer--links {
+
+    display: flex;
+    margin-top: 15px;
+
+  }
+
+  .footer--links.mt {
+
+    margin-top: 0.25rem;
+  }
+
+  .footer--links > ul {
+
+    list-style: none;
+    display: flex;
+
+  }
+
+  .footer--links > span {
+
+    color: #666;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+
+  }
+
+  .footer--links > ul > li > a {
+
+    color: #aaa;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-weight: 500;
+
+  }
+
+  .footer--links > ul > li > a:hover {
+
+    color: #8c5ece;
+
+  }
+
+  .copyright {
+
+    color: #666;
+    margin-top: 10px;
+    font-size: 1.2rem;
+
+  }
+
+  .site--disclaimer {
+
+    color: #666;
+   
+
+  }
+
+  
 
 
