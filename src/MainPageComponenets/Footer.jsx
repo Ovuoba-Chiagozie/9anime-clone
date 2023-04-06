@@ -48,9 +48,9 @@ let Footer = () => {
                         <div className="footer--logo"></div>
                         <div className="footer--socials">
                             <span>Join now</span>
-                            <a href=""><i class="fa-brands fa-twitter"></i></a>
-                            <a href=""><i class="fa-brands fa-reddit-alien"></i></a>
-                            <a href=""><i class="fa-brands fa-discord"></i></a>
+                            <a href=""><i className="fa-brands fa-twitter"></i></a>
+                            <a href=""><i className="fa-brands fa-reddit-alien"></i></a>
+                            <a href=""><i className="fa-brands fa-discord"></i></a>
                         </div>
                         </div>
                         <div className="footer--links">

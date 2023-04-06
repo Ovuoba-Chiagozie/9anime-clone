@@ -655,6 +655,34 @@ max-height: 0;
 
 }
 
+.social--wrapper {
+  
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin: 0 10px;
+  
+}
+
+.social--wrapper .add--this {
+
+  -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+
+}
+
+.social--wrapper .add--this:hover {
+
+  -webkit-transform: translate(-4px);
+  -moz-transform: translate(-4px);
+  -o-transform: translate(-4px);
+  -ms-transform: translate(-4px);
+  transform: translateY(-4px)
+
+}
+
 .share--btn--wrapper {
 
   display: flex;

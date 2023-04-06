@@ -258,20 +258,20 @@ const Header = () => {
                 <a href="" className="read--manga"><i className="fa-solid fa-book"></i><span>Read Manga</span></a>
                 </div>
                 <Language lang={lang} toggle={togglelang} />
-                <div className="social--wrapper">
+                <div className="social--wrapper ms">
                   <div className="share--btn--wrapper">
-                <div className='facebook'>
+                <div className='facebook br'>
                 <a className='social-links' href="">
                 <img className='social-icons' src={Facebook} alt="" />
                 </a>
             </div>
-            <div className='twitter'>
+            <div className='twitter br'>
                 <a className='social-links' href="">
                 <img className='social-icons' src={Twitter} alt="" />
                 </a>
             </div>
             </div>
-            <div className='add--this'>
+            <div className='add--this br'>
                 <a className='social-links' href="">
                 <img className='social-icons' src={Addthis} alt="" />
                 <span className='social--count' >534K</span>

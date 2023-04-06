@@ -1,4 +1,4 @@
-import Top from '../homepageComponents/Top'
+import {Top} from '../homepageComponents/Top'
 import Bottom from '../homepageComponents/Bottom'
 
 const Home = () => {
