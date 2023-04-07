@@ -34,6 +34,10 @@
 
     let [update, setUpdate] = React.useState([])
     let test = []
+    let timeout = (ms) => {
+        console.log('timeout')
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
     let fetchData = async () => {
         let seasons = ['fall','summer','spring','winter']
@@ -49,10 +53,11 @@
             years.map( async (year) => {
 
              let Yearlyanime = await Promise.all(
-
+                
                 seasons.map(async (season) => {
 
                     const response = await fetch(`https://api.jikan.moe/v4/seasons/202${year}/${season}`) 
+                    await timeout(600)
                     const seasonAnime = await response.json()
                     console.log(seasonAnime.data)
                     return (seasonAnime.data)
