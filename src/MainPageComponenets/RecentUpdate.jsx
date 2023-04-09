@@ -33,81 +33,145 @@
   let RecentUpdate = () => {
 
     let [update, setUpdate] = React.useState([])
-    let test = []
+    let [test,setTest] = React.useState(0)
+    let [year,setYear] = React.useState(2)
+    let seasons = ['fall','summer','spring','winter']
     let timeout = (ms) => {
         console.log('timeout')
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-    let fetchData = async () => {
-        let seasons = ['fall','summer','spring','winter']
-        let years = []
-        for (let i= 3; i > -1; i--) {
-            years.push(i)
-            // console.log('what')
-        }
-        console.log( 'idiot',years)
+let handleNextClick = () => {
+    let example
+    let head
+      setTest( prevState => { 
+           
 
-        let anime = await  Promise.all (
+            if (prevState < seasons.length - 1 ) {
 
-            years.map( async (year) => {
+                example =  prevState + 1
 
-             let Yearlyanime = await Promise.all(
-                
-                seasons.map(async (season) => {
+                }
 
-                    const response = await fetch(`https://api.jikan.moe/v4/seasons/202${year}/${season}`) 
-                    await timeout(600)
-                    const seasonAnime = await response.json()
-                    console.log(seasonAnime.data)
-                    return (seasonAnime.data)
+                 else {
+
+                example = 0
+                head = 0
+                console.log('test', example)
+
+                    }
                     
-                })
-             )          
+                                
+                                // console.log(test)
+                    return example
+                                 }
+                        )
 
-                        return Yearlyanime
-            })
+        if (example === 2) {
+  console.log(example)
+            setYear(prevState => {
+                let whatever = prevState > 0 ? prevState - 1 : prevState = 0
+                console.log('animeyear', whatever)
+                return whatever
+                      })
 
-        )
+        }
 
-        let newArray = []
-        setUpdate( prevState => {
-            anime.forEach(ani => {
+}
 
-                ani.forEach(seasonsArray => {
+    let fetchData = async () => {
+       
+        console.log('fetch')
+        // let years = []
+        // for (let i= 3; i > -1; i--) {
+        //     years.push(i)
+        //     // console.log('what')
+        // }
+        // console.log( 'idiot',years)
 
-                    seasonsArray.forEach(recentAnimeObject => {
-                        if(recentAnimeObject.airing == false && recentAnimeObject.year == 2023) {
-                            console.log(recentAnimeObject.airing,recentAnimeObject.year)
-                        }
+        // let anime = await  Promise.all (
 
-                        else {
-                            newArray.push(recentAnimeObject)
-                        }
+            let response = await fetch(`https://api.jikan.moe/v4/seasons/202${year}/${seasons[test]}`)
+            console.log(seasons[test], '202',year)
+            const seasonAnime = await response.json()
+            let idiot = seasonAnime.data
+                    console.log(seasonAnime.data)
+
+                    setUpdate(
+
+                        idiot.map(idi => {
+
+                            return <Card 
+                                    image = {idi.images.jpg.image_url}
+                                    status = {idi.status}
+                                    episodes = {idi.episodes}
+                                    type = {idi.type}
+                                    title ={idi.title_english}
+                                     />
+                            
+                        })
+
+                    )
+                    // return (seasonAnime.data)
+
+            // years.map( async (year) => {
+
+            //  let Yearlyanime = await Promise.all(
+                
+            //     seasons.map(async (season) => {
+
+            //         const response = await fetch(`https://api.jikan.moe/v4/seasons/202${year}/${season}`) 
+            //         // await timeout(600)
+            //         const seasonAnime = await response.json()
+            //         console.log(seasonAnime.data)
+            //         return (seasonAnime.data)
+                    
+            //     })
+            //  )          
+
+            //             return Yearlyanime
+            // })
+
+        // )
+
+        // let newArray = []
+        // setUpdate( prevState => {
+        //     anime.forEach(ani => {
+
+        //         ani.forEach(seasonsArray => {
+
+        //             seasonsArray.forEach(recentAnimeObject => {
+        //                 if(recentAnimeObject.airing == false && recentAnimeObject.year == 2023) {
+        //                     console.log(recentAnimeObject.airing,recentAnimeObject.year)
+        //                 }
+
+        //                 else {
+        //                     newArray.push(recentAnimeObject)
+        //                 }
                         
-                    })
+        //             })
 
-                })
+        //         })
 
-               })
+        //        })
 
-               let unique = [...new Set(newArray)]
+        //        let unique = [...new Set(newArray)]
 
-               let recentAnimeDiv = unique.map(un => {
-                console.log(un)
-                return <Card 
-                         image = {un.images.jpg.image_url}
-                         status = {un.status}
-                         episodes = {un.episodes}
-                         type = {un.type}
-                         title ={un.title_english}
-                        />
+        //        let recentAnimeDiv = unique.map(un => {
+        //         console.log(un)
+        //         return <Card 
+        //                  image = {un.images.jpg.image_url}
+        //                  status = {un.status}
+        //                  episodes = {un.episodes}
+        //                  type = {un.type}
+        //                  title ={un.title_english}
+        //                 />
 
-               })
+        //        })
 
-               return recentAnimeDiv
+        //        return recentAnimeDiv
 
-            })
+        //     })
 
     }
 
@@ -115,7 +179,7 @@
 
         fetchData()
 
-    },[])
+    },[test])
 
     React.useEffect(() => {
 
@@ -138,7 +202,7 @@
                     </div>
                     <div className="paging--nav">
                         <span className="paging--prev inactive"><i class="fa-solid fa-angle-left"></i></span>
-                        <span className="paging--next"><i class="fa-solid fa-angle-right"></i></span>
+                        <span className="paging--next" onClick={handleNextClick}><i class="fa-solid fa-angle-right"></i></span>
                     </div>
                 </div>
             </div>

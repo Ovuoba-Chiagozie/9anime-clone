@@ -324,7 +324,6 @@ html {
     max-height: 0;
     overflow-y: hidden;
     transition: all 0.2s linear;
-    position: absolute;
     /* background: #171717; */
     position: absolute;
     padding-top:0;
@@ -612,7 +611,7 @@ html {
     max-width: 600px; */
     height: 100%;
     padding: 0px 10px 0px 10px;
-    border-radius: 5px;
+    
     background-color: rgb(20, 20, 20);
     font-size: 1.1rem;
     border-radius: 0.5rem;

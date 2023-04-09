@@ -13,7 +13,7 @@ let SearchBar = (prop) => {
     return (
 
         <div className="Main--searchbar">
-    <form  className='searchbox--form' action="">
+    <form  className='searchbox--form' >
         <div className='form--container'>
         <button>
         <i className="fa-solid fa-magnifying-glass search-icon"></i>
@@ -37,7 +37,7 @@ let SearchBar = (prop) => {
 
 }
 
-let SearchBox = (prop) => {
+let SearchBox = () => {
 
     let [animeData, setAnimeData] = React.useState({
         animeName:"",
@@ -78,24 +78,17 @@ let SearchBox = (prop) => {
         console.log('this',animeData.animeName)
     }
 
-    let changeBackground = () => {
-
-        let searchboxContainer = document.querySelector('.searchbox--container')
-        let searchboxform = document.querySelector('.searchbox--form')
-        searchboxContainer.style.cssText += "background-color:#171717"
-        searchboxform.style.cssText += "background-color:#171717"
-       
-    }
-
     let releaseDropdown = () => {
 
         showClear()
         let searchBoxDrop = document.querySelector('.searchbox--dropdown')
         let searchBoxContainer = document.querySelector('.searchbox--container')
+        let homeinput = document.querySelector('.homeinput2')
+        homeinput.classList.add('showclear')
         searchBoxDrop.classList.add('drop')
         searchBoxContainer.classList.add('border')
         hideSeacrhDisplay()
-        changeBackground()
+       
 
     }
 
@@ -123,19 +116,12 @@ let SearchBox = (prop) => {
        if (outsideclick) {
 
         searchBoxDrop.classList.remove('drop')
-        // searchBoxContainer.classList.remove('border')
         ClearBtn.classList.remove('showclear')
         formImg.classList.remove('showclear')
         form.classList.remove('showclear')
-        let searchboxContainer = document.querySelector('.searchbox--container')
-        let searchboxform = document.querySelector('.searchbox--form')
-        searchboxContainer.style.cssText += "background-color:#141414"
-        searchboxform.style.cssText += "background-color:#141414"
+        let homeinput = document.querySelector('.homeinput2')
+        homeinput.classList.remove('showclear')
         console.log('idiot')
-        // prop.clearInput
-        // searchinput.value = prop.animeName
-        // prop.clearInput
-        // console.log('claery',prop.animeName)
         clearInput()
         searchinput.value = animeData.animeName
 
@@ -144,7 +130,6 @@ let SearchBox = (prop) => {
         console.log('something is wrong')  
     }
    
-//  console.log('input',prop.animeName)
     return (
         <div className="searchbox--container">
             <SearchBar
@@ -189,53 +174,3 @@ let SearchBox = (prop) => {
 }
 
 export {SearchBox, SearchBar}
-
-{/* <div className="Main--searchbar">
-        <form  className='searchbox--form' action="">
-            <div className='form--container'>
-            <i className="fa-solid fa-magnifying-glass search-icon"></i>
-            <input 
-            type="text" 
-            className="homeinput2" 
-            placeholder="Search anime..."
-            name="animeName"
-            value={animeData.animeName}
-            onChange={handleChange}
-            onFocus = {releaseDropdown}
-             />
-             <img className='form--img' src={searchShortcut} alt="" />
-            <span className='clearbtn'>Clear</span>
-            </div>
-        </form>
-        </div> */}
-
-
-            
-
-    // let [animeData, setAnimeData] = React.useState({
-    //     animeName:"",
-        
-    // })
-
-    // document.addEventListener('click', (event) => {
-
-    //     let searchBoxContainer = document.querySelector('.searchbox--container')
-    //     let homeinput = document.querySelector('.searchbar')
-    //     let outsideclick = !searchBoxContainer.contains(event.target)
-    //     console.log(event.target)
-    //    if (outsideclick) {
-    //     let searchbox = document.querySelector('.searchbox--container')
-    //     searchbox.classList.remove('display--search')
-    //     homeinput.classList.remove('display--search')
-    //     console.log('something is wrong')
-    //    }
-    // })
-      
-    // let handleChange = (event) => {
-
-    //     let {name, value} = event.target
-    //     setAnimeData(prevState => {
-    //         return {...prevState, [name]: value}
-    
-    //     })
-    // }

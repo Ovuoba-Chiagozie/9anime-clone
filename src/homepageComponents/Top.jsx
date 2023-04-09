@@ -60,38 +60,6 @@ let SocialIcons = () => {
 
 const Top = () => {
 
-    // let [animeData, setAnimeData] = React.useState({
-    //     animeName:"",
-        
-    // })
-    // let handleChange = (event) => {
-
-    //     let searchinput = document.querySelector('.homeinput2')
-
-    //     let {name, value} = event.target
-    //     setAnimeData(prevState => {
-    //         return {...prevState, [name]: value}
-    
-    //     })
-    //     if(searchinput.value == ""){
-
-    //         let footer = document.querySelector('.searchbox--footer')
-    //         footer.classList.remove('display--footer')
-    //         // console.log("footer")
-    
-    //       }
-    // }
-
-    // let clearInput = () => {
-
-    //     setAnimeData(prevState => {
-    //         return {...prevState, animeName: ""}
-    
-    //     })
-
-    //     console.log('this',animeData.animeName)
-    // }
-
     return (
         <div className='top--container'>
         <div className="top-logo"></div>
@@ -102,11 +70,7 @@ const Top = () => {
             <li><a href="#8">Recent Update</a></li>
         </ul>
          {/* <HomeInput clearInput = {clearInput} />  */}
-        <SearchBox
-        //  handleChange = {handleChange}
-        //  animeName = {animeData.animeName}
-        //  clearInput = {clearInput} 
-        />
+        <SearchBox />
         <div className='go--to-homepage--btn'>
             <a href="">Go to homepage  <i className="fa-solid fa-circle-arrow-right"></i></a>
         </div>
