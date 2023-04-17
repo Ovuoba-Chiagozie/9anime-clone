@@ -1,6 +1,19 @@
-import React from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 
-let Card = (prop) => {
+type Cardprops = {
+
+  key: number,
+  image: string,
+  title: string
+  rating: string | string[]
+  score: number
+  type: string
+  aired: string | string[]
+  color: boolean
+
+}
+
+let Card = (prop: Cardprops) => {
  
   let styles = {
 
@@ -41,8 +54,13 @@ let Card = (prop) => {
 
 let NoResult = () => {
 
-  let viewAll = document.querySelector('.view--all')
+  let viewAll = document.querySelector('.view--all') as HTMLDivElement | null
+
+  if(viewAll != null) {
+
             viewAll.classList.remove('display')
+
+  }
 
   return (
 
@@ -52,21 +70,58 @@ let NoResult = () => {
 
 }
 
-let SuggestionDropdown = (prop) => {
+type dropdownSuggestion = {
+
+  anime: string
+
+}
+
+let SuggestionDropdown = (prop: dropdownSuggestion) => {
       
-    let [animeImages, setAnimeImages] = React.useState([])
+    let [animeImages, setAnimeImages] = React.useState<ReactNode>([])
+
+    type Divelement = HTMLDivElement | null
     
    
     React.useEffect(() => {
       if(prop.anime.length > 1) {
-      const url = `https://api.jikan.moe/v4/anime?q=*${prop.anime}&limit=5*`
+      const url: string = `https://api.jikan.moe/v4/anime?q=*${prop.anime}&limit=5*`
+
+      // type arrayData = {
+
+      //   mal_id: number,
+      //   images: {jpg:{image_url: string}}
+      //   title: string
+      //   rating: string
+      //   score: number
+      //   type: string
+      //   aired:{string: string}
+  
+      // }
+
+      type Anime = {
+
+        data: {
+        
+        mal_id: number,
+        images: {jpg:{image_url: string}}
+        title: string
+        rating: string
+        score: number
+        type: string
+        aired:{string: string}
+       
+        }[]
+
+      }
 
       fetch(url)
       .then(response => response.json())
-      .then(anime => {
-        console.log(anime)
+      .then((anime: Anime) => {
+        console.log(anime,"mad")
         if (anime.data.length > 0) {
-        setAnimeImages(anime.data.map((dataArray,index) => {
+
+        setAnimeImages(anime.data.map((dataArray,index: number) => {
           let id = dataArray.mal_id
           let poster = dataArray.images.jpg.image_url
           let title = dataArray.title
@@ -85,9 +140,11 @@ let SuggestionDropdown = (prop) => {
                          color ={index % 2 === 0 ? true : false}
                          />
 
-          if (!anime.data.length == 0) {
-            let viewAll = document.querySelector('.view--all')
+          if (anime.data.length == 0) {
+            let viewAll = document.querySelector('.view--all') as Divelement
+            if(viewAll != null) {
             viewAll.classList.add('display')
+            }
           }
 
           return cards
@@ -102,11 +159,18 @@ let SuggestionDropdown = (prop) => {
       
 
       let dropDownwrapper = document.getElementsByClassName('dropDown--wrapper')
-      let footer = document.querySelector('.searchbox--footer')
+      let footer = document.querySelector('.searchbox--footer') as Divelement
      
       dropDownwrapper[0].classList.remove('display--height')
+
+      if (footer != null) {
+
       footer.classList.add('display--footer')
+
+      }
+
       setTimeout(() => {
+
         dropDownwrapper[0].classList.add('display--height')
         
       },3 );

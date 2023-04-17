@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, ReactNode } from "react";
 import "../Tooltip.css";
 
-const Tooltip = (props) => {
+type toolTipProps ={
+
+  content: ReactNode,
+  direction: string,
+  children: ReactNode
+
+}
+
+const Tooltip = (props: toolTipProps) => {
   let timeout;
   const [active, setActive] = useState(false);
 
   const showTip = () => {
     timeout = setTimeout(() => {
       setActive(true);
-    }, props.delay || 400);
+    },  400);
   };
 
   const hideTip = () => {
-    clearInterval(timeout);
+    // clearInterval(timeout);
     setActive(false);
   };
 

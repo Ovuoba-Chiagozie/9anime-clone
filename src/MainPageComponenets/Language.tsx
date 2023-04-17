@@ -1,5 +1,12 @@
 
-let Language = (prop) => {
+type Languageprop = {
+
+    lang: boolean,
+    toggle():void
+
+}
+
+let Language = (prop: Languageprop) => {
 
     return (
 

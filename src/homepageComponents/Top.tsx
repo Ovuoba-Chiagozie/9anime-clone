@@ -1,5 +1,4 @@
 import React from 'react'
-import HomeInput from "./HomeInput"
 import {SearchBox} from "./SearchBox"
 import Facebook from '../assets/facebook-icon.svg'
 import Twitter from '../assets/Twiiter-icon.svg'
@@ -69,7 +68,6 @@ const Top = () => {
             <li><a href="#">New Release</a></li>
             <li><a href="#8">Recent Update</a></li>
         </ul>
-         {/* <HomeInput clearInput = {clearInput} />  */}
         <SearchBox />
         <div className='go--to-homepage--btn'>
             <a href="">Go to homepage  <i className="fa-solid fa-circle-arrow-right"></i></a>

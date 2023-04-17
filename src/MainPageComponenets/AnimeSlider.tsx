@@ -1,7 +1,16 @@
-import React from "react";
+import React,{ReactNode} from "react";
 
+type sliderCard = {
 
-let CardSlider = (prop) => {
+    title: string
+    rating: string | string[],
+    aired: string | string[]
+    synopsis: string,
+    image: string
+
+}
+
+let CardSlider = (prop: sliderCard) => {
 
     // let styles = {
     //     backgroundImage: `url(${prop.image})`,
@@ -19,14 +28,14 @@ let CardSlider = (prop) => {
                 <div className="slider--info--icons">
                     <div className="icons--rating">{prop.rating}</div>
                     <div className="icons--film--quality">HD</div>
-                    <i class="fas fa-closed-captioning"></i>
-                    <i class="fas fa-microphone"></i>
+                    <i className="fas fa-closed-captioning"></i>
+                    <i className="fas fa-microphone"></i>
                     <div>{prop.aired}</div>
                 </div>
                 <div className="slider--info--synopsis">{prop.synopsis}</div>
                 <div className="play--container">
                     <a href="">
-                    <i class="fas fa-play"></i>
+                    <i className="fas fa-play"></i>
                     PLAY NOW
                     </a>
                 </div>
@@ -40,11 +49,19 @@ let CardSlider = (prop) => {
 
 let AnimeSlider = () => {
 
-    let [cardContent,setCardContent] = React.useState([])
-    const [index, setIndex] = React.useState(0);
+    type Globalset = {
+
+        isDragStart: boolean,
+        prevPageX?: number,
+        prevscrollLeft?: number
+
+    }
+
     const delay = 3000;
-    let carousel = document.querySelector('.slider--container')
-    let [global,setGlobal] = React.useState({
+    let [cardContent,setCardContent] = React.useState<ReactNode[]>([])
+    const [index, setIndex] = React.useState<number | void>(0);
+    let carousel = document.querySelector('.slider--container') as HTMLDivElement | null
+    let [global,setGlobal] = React.useState<Globalset | undefined>({
 
         isDragStart : true,
         prevPageX:0 ,
@@ -58,9 +75,27 @@ let AnimeSlider = () => {
        let animes = await Promise.all(
 
          arr.map(async (id) => {   
+
+            interface objectAnime {
+
+                data: {
+                    title_english: string,
+                    rating: string ,
+                    aired: {
+                        string: string 
+                    }
+                    synopsis: string,
+                    images: {
+                        jpg: {                           
+                            large_image_url: string
+                        }
+                    }
+                }
+
+            }
           
                 const response = await fetch(`https://api.jikan.moe/v4/anime/${id}`)
-                const animeObject = await response.json()
+                const animeObject: objectAnime = await response.json()
                 // console.log(animeObject.data)
                 if(animeObject.data) {
                 let title = animeObject.data.title_english
@@ -79,7 +114,7 @@ let AnimeSlider = () => {
 
             }))
 
-            setCardContent(animes.filter(anime => {
+            setCardContent(animes.filter((anime):boolean => {
 
                 if (anime) {
                     return true
@@ -99,10 +134,13 @@ let AnimeSlider = () => {
     },[cardContent])
 
     React.useEffect(() => {
-    setTimeout(
-      () =>
-        setIndex((prevIndex) =>
+    setTimeout(() => 
+        setIndex((prevIndex) => {
+        if((prevIndex != null)  ) {
+
           prevIndex === cardContent.length - 1 ? 0 : prevIndex + 1
+
+        }}
         ),
       delay
     );
@@ -110,28 +148,34 @@ console.log('what',index)
     return () => {};
   }, [index]);
 
-    let dragStart = (e) => {
-
+    let dragStart = (e:React.MouseEvent<HTMLDivElement>) => {
+    
        setGlobal(prevState => {
-
+        if(carousel != null) {
         return (
             {...prevState, isDragStart:true,prevPageX:e.pageX,prevscrollLeft:carousel.scrollLeft}
         )
-
+        }
        })
-
     }
 
-    let dragging = (e) => {
+    let dragging = (e:React.MouseEvent<HTMLDivElement>) => {
+
+        if(typeof global != 'undefined' && carousel) {
 
         if(!global.isDragStart) return;
         e.preventDefault()
+
+        if(global.prevPageX && global.prevscrollLeft) {
+
         let positionDiff = e.pageX - global.prevPageX
         carousel.scrollLeft = global.prevscrollLeft - positionDiff
 
+        }}
+
     }
 
-    let dragStop = (e) => {
+    let dragStop = () => {
 
        setGlobal(prevState => {
 
@@ -146,9 +190,9 @@ console.log('what',index)
     return (
 
         <div className="slider--container" 
-        //  onMouseDown={dragStart}
-        //  onMouseMove={dragging}
-        //  onMouseUp={dragStop}
+         onMouseDown={dragStart}
+         onMouseMove={dragging}
+         onMouseUp={dragStop}
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
          >
             {cardContent}

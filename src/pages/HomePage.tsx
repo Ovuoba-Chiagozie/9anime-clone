@@ -2,7 +2,7 @@ import Header from "../MainPageComponenets/Header";
 import Footer from "../MainPageComponenets/Footer";
 import AnimeSlider from "../MainPageComponenets/AnimeSlider";
 import MainContent from "../MainPageComponenets/MainContent";
-// import "../homepage.css";
+import "../homepage.css";
 const HomePage = () => {
   return( 
   

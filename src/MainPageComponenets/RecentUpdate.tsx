@@ -1,7 +1,18 @@
-  import React from "react"
+  import React,{ReactNode} from "react"
+
+  type cardProp = {
+
+    key: number
+    image: string
+    status: string
+    episodes: number
+    type: string
+    title: string
+
+  } 
 
 
-  let Card = (prop) => {
+  let Card = (prop: cardProp) => {
 
     return (
 
@@ -32,14 +43,14 @@
 
   let RecentUpdate = () => {
 
-    let [update, setUpdate] = React.useState([])
+    let [update, setUpdate] = React.useState<ReactNode>([])
     let [test,setTest] = React.useState(0)
     let [year,setYear] = React.useState(2)
     let seasons = ['fall','summer','spring','winter']
-    let timeout = (ms) => {
-        console.log('timeout')
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+//     let timeout = (ms) => {
+//         console.log('timeout')
+//     return new Promise(resolve => setTimeout(resolve, ms));
+// }
 
 let handleNextClick = () => {
     let example
@@ -82,26 +93,34 @@ let handleNextClick = () => {
     let fetchData = async () => {
        
         console.log('fetch')
-        // let years = []
-        // for (let i= 3; i > -1; i--) {
-        //     years.push(i)
-        //     // console.log('what')
-        // }
-        // console.log( 'idiot',years)
 
-        // let anime = await  Promise.all (
+        type animeSeason = {
+            data:{
+                mal_id: number,
+                images: {
+                    jpg: {
+                        image_url: string
+                    }
+                },
+                status: string,
+                episodes: number,
+                type: string,
+                title_english: string
+            }[]
+        }
 
             let response = await fetch(`https://api.jikan.moe/v4/seasons/202${year}/${seasons[test]}`)
             console.log(seasons[test], '202',year)
-            const seasonAnime = await response.json()
+            const seasonAnime: animeSeason = await response.json()
             let idiot = seasonAnime.data
-                    console.log(seasonAnime.data)
+                    console.log(seasonAnime, 'are')
 
                     setUpdate(
 
                         idiot.map(idi => {
 
                             return <Card 
+                                    key= {idi.mal_id}
                                     image = {idi.images.jpg.image_url}
                                     status = {idi.status}
                                     episodes = {idi.episodes}
@@ -112,66 +131,7 @@ let handleNextClick = () => {
                         })
 
                     )
-                    // return (seasonAnime.data)
 
-            // years.map( async (year) => {
-
-            //  let Yearlyanime = await Promise.all(
-                
-            //     seasons.map(async (season) => {
-
-            //         const response = await fetch(`https://api.jikan.moe/v4/seasons/202${year}/${season}`) 
-            //         // await timeout(600)
-            //         const seasonAnime = await response.json()
-            //         console.log(seasonAnime.data)
-            //         return (seasonAnime.data)
-                    
-            //     })
-            //  )          
-
-            //             return Yearlyanime
-            // })
-
-        // )
-
-        // let newArray = []
-        // setUpdate( prevState => {
-        //     anime.forEach(ani => {
-
-        //         ani.forEach(seasonsArray => {
-
-        //             seasonsArray.forEach(recentAnimeObject => {
-        //                 if(recentAnimeObject.airing == false && recentAnimeObject.year == 2023) {
-        //                     console.log(recentAnimeObject.airing,recentAnimeObject.year)
-        //                 }
-
-        //                 else {
-        //                     newArray.push(recentAnimeObject)
-        //                 }
-                        
-        //             })
-
-        //         })
-
-        //        })
-
-        //        let unique = [...new Set(newArray)]
-
-        //        let recentAnimeDiv = unique.map(un => {
-        //         console.log(un)
-        //         return <Card 
-        //                  image = {un.images.jpg.image_url}
-        //                  status = {un.status}
-        //                  episodes = {un.episodes}
-        //                  type = {un.type}
-        //                  title ={un.title_english}
-        //                 />
-
-        //        })
-
-        //        return recentAnimeDiv
-
-        //     })
 
     }
 
@@ -201,8 +161,8 @@ let handleNextClick = () => {
                         <div>Random</div>
                     </div>
                     <div className="paging--nav">
-                        <span className="paging--prev inactive"><i class="fa-solid fa-angle-left"></i></span>
-                        <span className="paging--next" onClick={handleNextClick}><i class="fa-solid fa-angle-right"></i></span>
+                        <span className="paging--prev inactive"><i className="fa-solid fa-angle-left"></i></span>
+                        <span className="paging--next" onClick={handleNextClick}><i className="fa-solid fa-angle-right"></i></span>
                     </div>
                 </div>
             </div>

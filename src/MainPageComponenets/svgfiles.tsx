@@ -1,4 +1,9 @@
- let Watch2gether = (prop) => {
+ 
+ type svgColor = {
+    color: string
+ }
+ 
+ let Watch2gether = (prop:svgColor) => {
 
     // onMouseEnter={prop.change} onMouseLeave={prop.revert}
 
@@ -12,7 +17,7 @@
 
  }
 
- let Random = (prop) => {
+ let Random = (prop: svgColor) => {
 
     // onMouseEnter={prop.change} onMouseLeave={prop.revert}
 

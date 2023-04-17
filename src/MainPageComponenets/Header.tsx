@@ -12,6 +12,7 @@ import React from "react";
 
 const Header = () => {
 
+  type anchortype =  HTMLAnchorElement | null
   let [result, setResult] = React.useState(true)
   let [svgHover, setSvgResult] = React.useState({
 
@@ -35,8 +36,10 @@ const Header = () => {
 
   let changeColor = () => {
 
-    let watchSvg = document.querySelector('.togethericon--wrapper')
-    let randomSvg = document.querySelector('.randomicon--wrapper')
+    let watchSvg = document.querySelector('.togethericon--wrapper') as anchortype
+    let randomSvg = document.querySelector('.randomicon--wrapper') as anchortype
+
+    if (watchSvg && randomSvg) {
 
     watchSvg.addEventListener('mouseenter',() => {
 
@@ -47,7 +50,11 @@ const Header = () => {
         )
       })
 
+      if(watchSvg) {
+
       watchSvg.classList.add('active')
+
+      }
 
     } )
 
@@ -61,16 +68,24 @@ const Header = () => {
 
       })
 
+      if (randomSvg) {
+
       randomSvg.classList.add('active')
+
+      }
 
     } )
 
   }
 
+  }
+
   let revertcolor = () => {
 
-    let watchSvg = document.querySelector('.togethericon--wrapper')
-    let randomSvg = document.querySelector('.randomicon--wrapper')
+    let watchSvg = document.querySelector('.togethericon--wrapper') as anchortype
+    let randomSvg = document.querySelector('.randomicon--wrapper') as anchortype
+
+    if(watchSvg && randomSvg) {
 
     watchSvg.addEventListener('mouseleave', () => {
 
@@ -82,7 +97,11 @@ const Header = () => {
 
       })
 
+      if(watchSvg) {
+
       watchSvg.classList.remove('active')
+
+      }
 
     })
 
@@ -96,9 +115,15 @@ const Header = () => {
 
       })
 
+      if(randomSvg) {
+
       randomSvg.classList.remove('active')
 
+      }
+
     })
+
+  }
 
   }
 
@@ -127,11 +152,19 @@ const Header = () => {
 
   React.useEffect(() => {
     
-    let hamburger = document.querySelector('.hamburger')
-    let menuList = document.querySelector('.menu--list')
+    let hamburger = document.querySelector('.hamburger') as HTMLDivElement | null
+    let menuList = document.querySelector('.menu--list') as HTMLUListElement | null
+
+    if (hamburger) {
+
     hamburger.addEventListener('click', () => {
+
+      if(hamburger && menuList) {
+
     result ? hamburger.classList.add("active") : hamburger.classList.remove("active")
     result ? menuList.classList.add("active") : menuList.classList.remove("active")
+
+      }
     console.log(result)
     setListPopup(prevState=> {
 
@@ -142,6 +175,8 @@ const Header = () => {
     })
 
   })
+
+}
 
 
 },[result])
@@ -245,7 +280,8 @@ const Header = () => {
         <div className="btn--wrapper" >
             <div className="btn--container">
                 <div className="btns">
-                <a href="" className="togethericon--wrapper" onMouseEnter={changeColor} onMouseLeave={revertcolor}><Tooltip content="Watch with friends" direction="bottom">
+                <a href="" className="togethericon--wrapper" onMouseEnter={changeColor} onMouseLeave={revertcolor}>
+                  <Tooltip content="Watch with friends" direction="bottom">
                   <Watch2gether color={svgHover.svgTogether}   /><span>Watch2gether</span>
                   </Tooltip>
                   </a>
