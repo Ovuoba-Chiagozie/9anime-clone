@@ -1,0 +1,291 @@
+commit fe89af00d54fcaa9a6d83c697f5dee0b7297dabe
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Mon Apr 17 19:29:09 2023 +0100
+
+    changed from REACTjs to Typescript
+
+M	index.html
+M	package-lock.json
+M	package.json
+M	src/App.css
+R085	src/App.tsx	src/App.jsx
+D	src/MainPageComponenets/AnimeSlider.tsx
+D	src/MainPageComponenets/Footer.tsx
+D	src/MainPageComponenets/Header.tsx
+D	src/MainPageComponenets/Language.tsx
+D	src/MainPageComponenets/MainContent.tsx
+D	src/MainPageComponenets/RecentUpdate.tsx
+D	src/MainPageComponenets/Tooltip.tsx
+D	src/MainPageComponenets/svgfiles.tsx
+D	src/homepageComponents/Bottom.tsx
+D	src/homepageComponents/SearchBox.tsx
+D	src/homepageComponents/SuggestionDropdown.tsx
+D	src/homepageComponents/Top.tsx
+D	src/main.tsx
+D	src/pages/Home.tsx
+D	src/pages/HomePage.tsx
+D	src/vite-env.d.ts
+D	tsconfig.json
+D	tsconfig.node.json
+D	vite.config.ts
+
+commit c0a0c787e2a2e33c646558cb2bbe6d9e6b017237
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Mon Apr 17 19:23:18 2023 +0100
+
+    changed from REACT js to typescript
+
+M	index.html
+M	package-lock.json
+M	package.json
+M	src/App.css
+R085	src/App.jsx	src/App.tsx
+R062	src/MainPageComponenets/AnimeSlider.jsx	src/MainPageComponenets/AnimeSlider.tsx
+R100	src/MainPageComponenets/Footer.jsx	src/MainPageComponenets/Footer.tsx
+R093	src/MainPageComponenets/Header.jsx	src/MainPageComponenets/Header.tsx
+R067	src/MainPageComponenets/Language.jsx	src/MainPageComponenets/Language.tsx
+R100	src/MainPageComponenets/MainContent.jsx	src/MainPageComponenets/MainContent.tsx
+R060	src/MainPageComponenets/RecentUpdate.jsx	src/MainPageComponenets/RecentUpdate.tsx
+R070	src/MainPageComponenets/Tooltip.jsx	src/MainPageComponenets/Tooltip.tsx
+R096	src/MainPageComponenets/svgfiles.jsx	src/MainPageComponenets/svgfiles.tsx
+R100	src/homepageComponents/Bottom.jsx	src/homepageComponents/Bottom.tsx
+D	src/homepageComponents/HomeInput.jsx
+R065	src/homepageComponents/SearchBox.jsx	src/homepageComponents/SearchBox.tsx
+R063	src/homepageComponents/SuggestionDropdown.jsx	src/homepageComponents/SuggestionDropdown.tsx
+R095	src/homepageComponents/Top.jsx	src/homepageComponents/Top.tsx
+R073	src/main.jsx	src/main.tsx
+R100	src/pages/Home.jsx	src/pages/Home.tsx
+R093	src/pages/HomePage.jsx	src/pages/HomePage.tsx
+A	src/vite-env.d.ts
+A	tsconfig.json
+A	tsconfig.node.json
+R100	vite.config.js	vite.config.ts
+
+commit 4873cc00280afb6c5ea3ce39fe0313727682b688
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Sun Apr 9 17:55:11 2023 +0100
+
+    fixed searchbar on home
+
+M	src/App.css
+M	src/App.jsx
+M	src/MainPageComponenets/RecentUpdate.jsx
+M	src/homepage.css
+M	src/homepageComponents/SearchBox.jsx
+D	src/homepageComponents/Tooltip.jsx
+M	src/homepageComponents/Top.jsx
+M	src/main.jsx
+M	src/pages/HomePage.jsx
+
+commit 2f70a8bb871513e958b80c0c9c006dd69754e90b
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Fri Apr 7 02:03:23 2023 +0100
+
+    fixed too many requests error in RecentUpdate component
+
+M	src/MainPageComponenets/RecentUpdate.jsx
+
+commit 663f420576aa03427c09d70eea019321ea18ec33
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Thu Apr 6 01:53:05 2023 +0100
+
+    created recently updated section cards
+
+M	src/App.css
+A	src/MainPageComponenets/AnimeSlider.jsx
+M	src/MainPageComponenets/Footer.jsx
+M	src/MainPageComponenets/Header.jsx
+A	src/MainPageComponenets/MainContent.jsx
+A	src/MainPageComponenets/RecentUpdate.jsx
+A	src/assets/icon-sub2.svg
+M	src/homepage.css
+M	src/homepageComponents/Top.jsx
+M	src/pages/Home.jsx
+M	src/pages/HomePage.jsx
+
+commit 0dda2ed0fd69341065fbc3b35bc168a2154e5796
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Wed Mar 29 02:56:53 2023 +0100
+
+    finished footer component
+
+A	src/MainPageComponenets/Footer.jsx
+M	src/homepage.css
+M	src/pages/HomePage.jsx
+
+commit 3dd2f0d3272f3b6ea25019001e744b2b9731d1cb
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Tue Mar 28 07:12:40 2023 +0100
+
+    fixed genre and type menus inside the hamburger menu and implemented tooltip
+
+M	src/MainPageComponenets/Header.jsx
+A	src/MainPageComponenets/Tooltip.jsx
+A	src/Tooltip.css
+M	src/homepage.css
+
+commit a582c0c975483ea0d6297089e918b583bc479b04
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Sat Mar 25 23:49:16 2023 +0100
+
+    edited header stying and fixed header searchbar
+
+M	src/MainPageComponenets/Header.jsx
+A	src/MainPageComponenets/Language.jsx
+M	src/MainPageComponenets/svgfiles.jsx
+M	src/homepage.css
+
+commit 9d146e067740102b8656133ec29ab326bf933252
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Sat Mar 25 00:33:22 2023 +0100
+
+    fixed header styling and search property
+
+M	src/App.jsx
+M	src/MainPageComponenets/Header.jsx
+A	src/MainPageComponenets/svgfiles.jsx
+M	src/homepage.css
+M	src/homepageComponents/SearchBox.jsx
+M	src/homepageComponents/SuggestionDropdown.jsx
+M	src/pages/HomePage.jsx
+
+commit 4e239896b4ca2cba62c9a344494c5cac2097c7ca
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Wed Mar 22 17:49:01 2023 +0100
+
+    updated title of project
+
+M	index.html
+
+commit 999c43238695a3364f21a46cae2c0fdcbd8b81c0
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Wed Mar 22 17:43:14 2023 +0100
+
+    updated base url of project
+
+M	vite.config.js
+
+commit b8fc8a77885fb7b73e824e3d88c5e7c1c5dac491
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Wed Mar 22 17:25:32 2023 +0100
+
+    update base of project
+
+M	vite.config.js
+
+commit 3ed84d0f9ae020473d931047290d02a1f70d3401
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Wed Mar 22 17:03:52 2023 +0100
+
+    add deployment workflow
+
+A	.github/workflows/deploy.yml
+M	package-lock.json
+M	package.json
+M	src/App.jsx
+A	src/MainPageComponenets/Header.jsx
+A	src/assets/random.svg
+A	src/assets/watch2gether.svg
+A	src/homepage.css
+M	src/homepageComponents/SearchBox.jsx
+M	src/homepageComponents/Top.jsx
+M	src/main.jsx
+A	src/pages/Home.jsx
+A	src/pages/HomePage.jsx
+
+commit 1c0ef2b22a4bd7e2d4aa0827a0c8e9463ea13f76
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Tue Mar 21 09:57:53 2023 +0100
+
+    made Home responsive and optimized for mobile
+
+M	src/App.css
+M	src/homepageComponents/SearchBox.jsx
+M	src/homepageComponents/SuggestionDropdown.jsx
+M	src/homepageComponents/Top.jsx
+
+commit 6accf1c94fdec749ed15d9ebfd65ed5b89f230a7
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Mon Mar 20 16:09:10 2023 +0100
+
+    fixed error in searchbar component(searchBox)
+
+M	src/App.css
+M	src/App.jsx
+A	src/assets/Add-this-icon.svg
+A	src/assets/Pinterest-icon.svg
+A	src/assets/Telegram-icon.svg
+A	src/assets/Twiiter-icon.svg
+A	src/assets/facebook-icon.svg
+A	src/assets/messenger-icon.svg
+A	src/assets/svgexport-13.svg
+A	src/homepageComponents/Bottom.jsx
+M	src/homepageComponents/SearchBox.jsx
+A	src/homepageComponents/Tooltip.jsx
+M	src/homepageComponents/Top.jsx
+M	src/index.css
+M	src/main.jsx
+
+commit 130b93a47692e0699524e68aa3d646c74ef4719e
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Thu Mar 16 18:59:28 2023 +0100
+
+    finished first Homepage searchbar
+
+M	src/App.css
+M	src/homepageComponents/HomeInput.jsx
+M	src/homepageComponents/SearchBox.jsx
+M	src/homepageComponents/SuggestionDropdown.jsx
+M	src/homepageComponents/Top.jsx
+
+commit e988bba30b38a23fcf4da814a9ac64a75b85a214
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Wed Mar 15 00:14:32 2023 +0100
+
+    added some modified files
+
+M	index.html
+M	src/App.css
+M	src/homepageComponents/HomeInput.jsx
+M	src/homepageComponents/SearchBox.jsx
+M	src/homepageComponents/SuggestionDropdown.jsx
+M	src/homepageComponents/Top.jsx
+
+commit 35dfe6dc881e31bd079f587b862d464c1e7f2c8f
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Wed Mar 15 00:10:22 2023 +0100
+
+    fixed suggestion card backgroundcolors
+
+M	index.html
+M	src/App.css
+M	src/App.jsx
+A	src/assets/downtip.svg
+A	src/assets/entertip.svg
+A	src/assets/escapetip.svg
+A	src/assets/filter.svg
+A	src/assets/logo.png
+A	src/assets/search-shortcut.svg
+A	src/assets/uptip.svg
+A	src/homepageComponents/HomeInput.jsx
+A	src/homepageComponents/SearchBox.jsx
+A	src/homepageComponents/SuggestionDropdown.jsx
+A	src/homepageComponents/Top.jsx
+
+commit 79b8a524508dc9fda1e24f6e829ac4cf4ec6348f
+Author: Ovuoba Chiagozie <ovuobachiagozie@gmail.com>
+Date:   Wed Mar 8 19:16:58 2023 +0100
+
+    added all the files
+
+A	.gitignore
+A	index.html
+A	package-lock.json
+A	package.json
+A	public/vite.svg
+A	src/App.css
+A	src/App.jsx
+A	src/assets/react.svg
+A	src/index.css
+A	src/main.jsx
+A	vite.config.js
